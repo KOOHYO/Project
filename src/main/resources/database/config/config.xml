@@ -4,6 +4,6 @@
 				  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.ko.home.board.BoardVO" alias="BoardVO"/>
+		<typeAlias type="com.ko.home.board.qna.QnaVO" alias="QnaVO"/>
 	</typeAliases>
 </configuration>
