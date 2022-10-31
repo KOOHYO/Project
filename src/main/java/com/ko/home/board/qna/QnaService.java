@@ -1,8 +1,8 @@
-package com.ko.home.board;
+package com.ko.home.board.qna;
 
 import org.springframework.stereotype.Service;
 
 @Service
-public class BoardService {
+public class QnaService {
 
 }

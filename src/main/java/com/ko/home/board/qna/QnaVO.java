@@ -1,11 +1,11 @@
-package com.ko.home.board;
+package com.ko.home.board.qna;
 
 import java.sql.Date;
 
 import lombok.Data;
 
 @Data
-public class BoardVO {
+public class QnaVO {
 
 	private Long num;
 	private String title;
