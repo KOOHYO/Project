@@ -20,7 +20,7 @@ class QnaServiceTest {
 	void getList() throws Exception {
 		Pager pager = new Pager();
 		QnaVO qnaVO = new QnaVO();
-		List<QnaVO> qnaVOs = qnaMapper.getList(pager);
+		List<QnaVO> qnaVOs = qnaMapper.getTextList(pager);
 		assertNotEquals(0, qnaVOs.size());
 	}
 

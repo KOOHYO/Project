@@ -3,10 +3,31 @@
 		    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ko.home.board.qna.QnaMapper">
-	<select id="getList" parameterType="Pager" resultType="QnaVO">
+
+	<insert id="setAddText" parameterType="QnaVO">
+		INSERT INTO QNA (NUM, WRITER, TITLE, CONTENTS, HIT, REGDATE, REF, STEP, DEPTH)
+		VALUES (null, #{writer}, #{title}, #{contents}, 1, now(), 1, 1, 1)
+	</insert>
+
+	<sql id="search">
+		WHERE
+			<choose>
+				<when test="kind=='title'">TITLE</when>
+				<when test="kind=='writer'">WRITER</when>
+				<otherwise>contents</otherwise>
+			</choose>
+	</sql>
+		
+	<select id="getTextCount" parameterType="Pager" resultType="Long">
+		SELECT COUNT(NUM) FROM QNA
+	</select>
+	
+	<!--                     글 목록                             -->
+	<select id="getTextList" parameterType="Pager" resultType="QnaVO">
 		SELECT * FROM QNA
 		WHERE CONTENTS  LIKE CONCAT('%', #{search},'%')
 		ORDER BY NUM DESC
 		limit #{startRow}, #{perPage}
 	</select>
+	
 </mapper>

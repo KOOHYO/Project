@@ -17,9 +17,14 @@ public class QnaService {
 	private QnaMapper qnaMapper;
 	
 	public List<QnaVO> getList(Pager pager)throws Exception{
+		Long totalCount = qnaMapper.getTextCount(pager);
+		pager.getNum(totalCount);
 		pager.makeRow();
-		log.info("pager {} ", pager);
-		return qnaMapper.getList(pager);
+		return qnaMapper.getTextList(pager);
+	}
+	
+	public int setAddText(QnaVO qnaVO)throws Exception{
+		return qnaMapper.setAddText(qnaVO);
 	}
 	
 }

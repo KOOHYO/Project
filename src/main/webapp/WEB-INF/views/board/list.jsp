@@ -14,6 +14,16 @@
 			<div class="col-7">
 				<h1>ListPage</h1>
 				<form action="./list" class="row row-cols-lg-auto g-3 align-items-center">
+				
+				  <div class="col-12">
+				    <label class="visually-hidden" for="kind">kind</label>
+				    <select name="kind" class="form-select" id="kind">
+				      <option class="kinds" value="contents">Contents</option>
+				      <option class="kinds" value="title">Title</option>
+				      <option class="kinds" value="writer">Writer</option>
+				    </select>
+				  </div>
+				
 				  <div class="col-12">
 				    <label class="visually-hidden" for="search">검색어</label>
 				    <div class="input-group">
@@ -47,6 +57,38 @@
 				  	</c:forEach>
 				  </tbody>
 				</table>
+				<div class="my-3">
+					<a href="./add" class="btn btn-primary">WRITE</a>
+				</div>	
+				<div>
+					<nav aria-label="Page navigation example">
+						<ul class="pagination">
+						  
+						<c:if test="${pager.pre}">
+							<li class="page-item">
+							<a class="page-link" href="./list?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">Previous</a></li>
+						</c:if>
+						  
+						<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+							<li class="page-item"><a class="page-link" href="./list?page=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
+						</c:forEach>
+						    
+			<%-- 	    <c:choose>
+						    <c:when test="${pager.next}">
+						    	<li class="page-item">
+						    </c:when>
+						    <c:otherwise>
+						    	여기는 부트스트랩 class 속성 disabled를 이용해서 누르지못하게 막아줌
+						    	<li class="page-item disabled">
+						    </c:otherwise>
+						</c:choose> --%>
+						    
+						  	<%-- 삼항연산자를 사용해서 하는 표현식 --%>
+						    <li class="page-item ${pager.next?'':'disabled'}">
+						    <a class="page-link" href="./list?page=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">Next</a></li>
+						</ul>
+					</nav>
+				</div>
 			</div>
 		</div>
 	</div>
