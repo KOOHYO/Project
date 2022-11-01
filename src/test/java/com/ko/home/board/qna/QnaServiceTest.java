@@ -16,7 +16,7 @@ class QnaServiceTest {
 	@Autowired
 	private QnaMapper qnaMapper;
 	
-	@Test
+	//@Test
 	void getList() throws Exception {
 		Pager pager = new Pager();
 		QnaVO qnaVO = new QnaVO();
