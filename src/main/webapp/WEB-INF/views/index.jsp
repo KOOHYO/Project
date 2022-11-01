@@ -10,6 +10,6 @@
 </head>
 <body>
 	<h1><b>Home Page</b></h1>
-	<a href="./board/list">게시판</a>
+	<a href="./qna/list">게시판</a>
 </body>
 </html>

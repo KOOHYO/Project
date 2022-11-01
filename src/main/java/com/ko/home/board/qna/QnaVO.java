@@ -18,6 +18,4 @@ public class QnaVO {
 	private Long step;
 	private Long depth;
 	
-	private List<QnaVO> qnaVOs;
-	
 }
