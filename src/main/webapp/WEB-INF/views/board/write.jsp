@@ -9,15 +9,16 @@
 <title>Insert title here</title>
 <c:import url="../temp/boot.jsp"></c:import>
 <c:import url="../temp/summer.jsp"></c:import>
-<script defer src="/js/fileManager.js"></script>
+<script defer src="/js/util.js"></script>
 <script defer src="/js/writeAdd.js"></script>
+<script defer src="/js/fileManager.js"></script>
 </head>
 <body>
 	<div class="container">
 		<div class="row justify-content-md-center">
 			<div class="col-7">
 				<h1>Write Page</h1>
-				<form:form action="./add" method="post" modelAttribute="qnaVO" enctype="multipart/form-data">
+				<form:form action="./add" id="writeForm" method="post" modelAttribute="qnaVO" enctype="multipart/form-data">
 					<div class="mb-3">
 					  <label for="title" class="form-label">TITLE</label>
 					  <form:input path="title" id="ipTitle" cssClass="form-control"/>
@@ -34,7 +35,7 @@
 
 					<div class="mb-3">
 					  <label for="contents" class="form-label">CONTENTS</label>
-					  <form:textarea path="contents" id="contents" cssClass="form-control"/>
+					  <form:textarea path="contents" id="ipContents" cssClass="form-control"/>
 					  <form:errors path="contents"></form:errors>
 					  <div id="contentsResult"></div>
 					</div>
@@ -52,7 +53,7 @@
 					</div>
 
 					<div>
-						<button type="submit" class="btn btn-info">WRITE</button>
+						<button type="button" class="btn btn-info" id="writeBtn">WRITE</button>
 					</div>
 				</form:form>
 			</div>
@@ -60,7 +61,7 @@
 	</div>	
 	
 <script type="text/javascript">
-	$('#contents').summernote({
+	$('#ipContents').summernote({
         tabsize: 4,
         height: 250
 	});

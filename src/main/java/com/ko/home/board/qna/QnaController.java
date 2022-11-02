@@ -30,10 +30,10 @@ public class QnaController {
 		ModelAndView mv = new ModelAndView();
 		QnaFileVO qnaFileVO = new QnaFileVO();
 		qnaVO = qnaService.getDetail(qnaVO);
-//		for(QnaFileVO f :qnaVO.getQnaFileVOs()) {
-//			qnaFileVO.setFileName(f.getFileName());
-//			qnaFileVO.setFileNum();
-//		}
+		for(QnaFileVO f :qnaVO.getQnaFileVOs()) {
+			qnaFileVO.setFileName(f.getFileName());
+			qnaFileVO.setFileNum(f.getNum());
+		}
 		mv.addObject("vo", qnaVO);
 		mv.setViewName("board/detail");
 		return mv;
@@ -56,7 +56,7 @@ public class QnaController {
 		
 		log.info("------------------ 검증 ------------------");
 		int result = qnaService.setAddText(qnaVO);
-		mv.setViewName("board/list");
+		mv.setViewName("redirect:../qna/list");
 		
 		return mv;
 	}

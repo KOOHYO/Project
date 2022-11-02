@@ -4,7 +4,9 @@
 		    "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ko.home.board.qna.QnaMapper">
 
-	
+	<select id="getFileDetail" parameterType="QnaFileVO" resultType="QnaFileVO">
+		SELECT * FROM QNAFILES WHERE FILENUM=#{fileNum};
+	</select>
 
 	<select id="getDetail" parameterType="QnaVO" resultMap="getDetailResult">
 		SELECT Q.*, QF.*
@@ -38,9 +40,9 @@
 		VALUES (NULL, #{num}, #{fileName}, #{oriName})
 	</insert>
 
-	<insert id="setAddText" parameterType="QnaVO">
+	<insert id="setAddText" parameterType="QnaVO" useGeneratedKeys="true" keyProperty="num">
 		INSERT INTO QNA (NUM, WRITER, TITLE, CONTENTS, HIT, REGDATE, REF, STEP, DEPTH)
-		VALUES (null, #{writer}, #{title}, #{contents}, 1, now(), 1, 1, 1)
+		VALUES (#{num}, #{writer}, #{title}, #{contents}, 1, now(), 1, 1, 1)
 	</insert>
 
 	<sql id="search">

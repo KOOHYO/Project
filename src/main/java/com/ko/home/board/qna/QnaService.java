@@ -24,7 +24,7 @@ public class QnaService {
 	private FileManager fileManager;
 	
 	// properties파일의 내용을 java에서 사용
-	@Value("${app3.upload.qna}")
+	@Value("${app.upload.qna}")
 	private String path;
 	
 	public QnaVO getDetail(QnaVO qnaVO)throws Exception{
@@ -53,7 +53,11 @@ public class QnaService {
 				qnaFileVO.setFileName(fileName);
 				qnaFileVO.setOriName(f.getOriginalFilename());
 				qnaFileVO.setNum(qnaVO.getNum());
+				log.info("==================================");
+				log.info("파일브이오 {} ", qnaFileVO.getFileName());
 				qnaMapper.setAddFile(qnaFileVO);
+				log.info("==================================");
+				log.info("파일브이오 들어갔니? {} ", qnaFileVO.getFileName());
 			}
 		}
 		
