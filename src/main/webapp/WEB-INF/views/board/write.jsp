@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <c:import url="../temp/boot.jsp"></c:import>
 <c:import url="../temp/summer.jsp"></c:import>
-<!-- <script defer src="/js/fileManager.js"></script> -->
+<script defer src="/js/fileManager.js"></script>
 </head>
 <body>
 	<div class="container">
