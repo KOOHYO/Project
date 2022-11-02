@@ -30,10 +30,10 @@ public class QnaController {
 		ModelAndView mv = new ModelAndView();
 		QnaFileVO qnaFileVO = new QnaFileVO();
 		qnaVO = qnaService.getDetail(qnaVO);
-		for(QnaFileVO f :qnaVO.getQnaFileVOs()) {
-			qnaFileVO.setFileName(f.getFileName());
-			qnaFileVO.setFileNum(f.getNum());
-		}
+//		for(QnaFileVO f :qnaVO.getQnaFileVOs()) {
+//			qnaFileVO.setFileName(f.getFileName());
+//			qnaFileVO.setFileNum(f.getNum());
+//		}
 		mv.addObject("vo", qnaVO);
 		mv.setViewName("board/detail");
 		return mv;

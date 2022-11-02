@@ -5,7 +5,7 @@
 <mapper namespace="com.ko.home.board.qna.QnaMapper">
 
 	<select id="getFileDetail" parameterType="QnaFileVO" resultType="QnaFileVO">
-		SELECT * FROM QNAFILES WHERE FILENUM=#{fileNum};
+		SELECT * FROM QNAFILES WHERE FILENUM=#{fileNum}
 	</select>
 
 	<select id="getDetail" parameterType="QnaVO" resultMap="getDetailResult">
