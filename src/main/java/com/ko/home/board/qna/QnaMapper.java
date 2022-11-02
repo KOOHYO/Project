@@ -9,6 +9,10 @@ import com.ko.home.util.Pager;
 @Mapper
 public interface QnaMapper {
 	
+	public QnaVO getDetail(QnaVO qnaVO)throws Exception;
+	
+	public int setAddFile(QnaFileVO qnaFileVO)throws Exception;
+	
 	public int setAddText(QnaVO qnaVO)throws Exception;
 	
 	public Long getTextCount(Pager pager)throws Exception;

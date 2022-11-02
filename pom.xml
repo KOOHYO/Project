@@ -19,7 +19,13 @@
 	</properties>
 	<dependencies>
 		
-		<!-- https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4.1 -->
+		<!-- 검증 Spring Form -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		
+		<!-- SQL Log -->
 		<!-- 버전은 최신 버전으로 -->
 		<dependency>
 			<groupId>org.bgee.log4jdbc-log4j2</groupId>
