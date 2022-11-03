@@ -3,6 +3,30 @@
 		    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ko.home.member.MemberMapper">
+	
+	<select id="getLogin" parameterType="String" resultMap="getLoginResult">
+		SELECT M.*, R.*
+		FROM MEMBER M
+			INNER JOIN
+			MEMBER_ROLE MR
+			ON (M.ID = MR.ID)
+			INNER JOIN
+			ROLE R
+			ON (MR.NUM = R.NUM)
+		WHERE M.ID=#{username}
+		ORDER BY R.NUM ASC
+	</select>
+	<resultMap type="MemberVO" id="getLoginResult">
+		<id column="ID" property="id"/>
+		<result column="PW" property="pw"/>
+		<result column="NAME" property="name"/>
+		<result column="EMAIL" property="email"/>
+		<collection property="roleVOs" javaType="List" ofType="RoleVO">
+			<result column="ROLENAME" property="roleName"/>
+		</collection>
+	</resultMap>
+	
+
 	<!--                회원가입                -->
 	<insert id="setAdd" parameterType="MemberVO">
 		INSERT INTO MEMBER
