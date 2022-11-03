@@ -19,7 +19,7 @@
 					<h1><b>Join Page</b></h1>
 				</div>
 				<%-- 회원 회원가입 form --%>
-				<form:form action="./add" modelAttribute="memberVO" method="post">
+				<form:form modelAttribute="memberVO" method="post">
 					<div class="my-4">
 						<label for="ipId" class="form-label"><b>아이디</b></label>
 						<form:input id="ipId" path="id" cssClass="form-control border-primary border-opacity-25"/>

@@ -18,13 +18,14 @@ public class MemberController {
 		return "member/login";
 	}
 	
-	@GetMapping("add")
+	@GetMapping("join")
 	public String setAdd()throws Exception{
 		return "member/join";
 	}
 	
-	@PostMapping
+	@PostMapping("join")
 	public String setAdd(MemberVO memberVO)throws Exception{
+		int result = memberService.setAdd(memberVO);
 		return "member/join";
 	}
 	

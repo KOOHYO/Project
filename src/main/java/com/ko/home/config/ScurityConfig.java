@@ -38,10 +38,10 @@ public class ScurityConfig {
 			.antMatchers("/").permitAll() // 루트 밑 (인덱스)페이지는 누구나 허용
 			.antMatchers("/login").permitAll()
 			.antMatchers("/logout").permitAll()
-			.antMatchers("/qna/list").permitAll()
 			.antMatchers("/admin").hasRole("ADMIN")
 			.antMatchers("/manager").hasRole("MANAGER")
-			.anyRequest().authenticated() // 그외 나머지는 로그인 했을때만 허용
+			.antMatchers("/qna/list").permitAll()
+			.anyRequest().permitAll() // 그외 나머지는 누구나 허용
 			.and()
 		.formLogin()
 			.loginPage("/member/login")

@@ -12,7 +12,7 @@
 	<h1><b>Home Page</b></h1>
 	<h3><a href="./qna/list">게시판</a></h3>
 	<h3><a href="./member/login">로그인</a></h3>
-	<h3><a href="./member/add">회원가입</a></h3>
+	<h3><a href="./member/join">회원가입</a></h3>
 	<h3><a href="./member/logout">로그아웃</a></h3>
 </body>
 </html>
